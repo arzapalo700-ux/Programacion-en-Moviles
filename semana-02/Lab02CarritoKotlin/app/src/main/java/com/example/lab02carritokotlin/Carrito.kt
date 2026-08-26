@@ -25,6 +25,10 @@ fun main() {
     carrito.add(p3)
     carrito.add(p4)
 
+    for (producto in carrito) {
+        println("Producto agregado: ${producto.nombre}")
+    }
+
     println("Se agregaron ${carrito.size} productos al carrito con exito.\n")
 
 }
