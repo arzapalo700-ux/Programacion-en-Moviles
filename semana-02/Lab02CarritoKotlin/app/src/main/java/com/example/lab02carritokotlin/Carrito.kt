@@ -40,6 +40,17 @@ fun main() {
         println("- ${item.nombre} x${item.cantidad}: S/ ${String.format("%.2f", subtotal)}")
     }
 
-    println("\nTOTAL A PAGAR: S/ ${String.format("%.2f", totalGeneral)}")
+    var descuento = 0.0
+    if (totalGeneral > 1000.0) {
+        descuento = totalGeneral * 0.10
+    }
+
+    val totalFinal = totalGeneral - descuento
+
+    println("\n-----------------------------------------")
+    println("Subtotal:       S/ ${String.format("%.2f", totalGeneral)}")
+    println("Descuento(10%): S/ ${String.format("%.2f", descuento)}")
+    println("TOTAL FINAL:    S/ ${String.format("%.2f", totalFinal)}")
+    println("=========================================")
 
 }
