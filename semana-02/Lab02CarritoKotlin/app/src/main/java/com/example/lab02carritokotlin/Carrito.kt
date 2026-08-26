@@ -31,4 +31,15 @@ fun main() {
 
     println("Se agregaron ${carrito.size} productos al carrito con exito.\n")
 
+    println("--- DETALLE DEL CARRITO ---")
+    var totalGeneral = 0.0
+
+    for (item in carrito) {
+        val subtotal = item.precio * item.cantidad
+        totalGeneral += subtotal
+        println("- ${item.nombre} x${item.cantidad}: S/ ${String.format("%.2f", subtotal)}")
+    }
+
+    println("\nTOTAL A PAGAR: S/ ${String.format("%.2f", totalGeneral)}")
+
 }
