@@ -31,13 +31,15 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-@Composable
 fun RegistroProductoScreen() {
     // Declaración de estados para guardar la información ingresada
     var nombre by remember { mutableStateOf("") }
     var precio by remember { mutableStateOf("") }
     var categoria by remember { mutableStateOf("") }
     var stock by remember { mutableStateOf("") }
+
+    // Estado para guardar el resumen formateado tras presionar el botón
+    var productoGuardado by remember { mutableStateOf("") }
 
     Column(
         modifier = Modifier
@@ -53,7 +55,7 @@ fun RegistroProductoScreen() {
             modifier = Modifier.padding(bottom = 8.dp)
         )
 
-        // Campos de texto para el formulario
+        // Campos del formulario
         OutlinedTextField(
             value = nombre,
             onValueChange = { nombre = it },
@@ -87,5 +89,44 @@ fun RegistroProductoScreen() {
             modifier = Modifier.fillMaxWidth(),
             singleLine = true
         )
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        // Botón de registro
+        Button(
+            onClick = {
+                if (nombre.isNotBlank() && precio.isNotBlank()) {
+                    productoGuardado = "Producto: $nombre | Precio: S/ $precio | Categoría: $categoria | Stock: $stock"
+                }
+            },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Registrar Producto")
+        }
+
+        // Tarjeta de confirmación desplegada dinámicamente
+        if (productoGuardado.isNotEmpty()) {
+            Card(
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer
+                ),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 8.dp)
+            ) {
+                Column(modifier = Modifier.padding(16.dp)) {
+                    Text(
+                        text = "¡Producto Registrado con Éxito!",
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.onPrimaryContainer
+                    )
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        text = productoGuardado,
+                        color = MaterialTheme.colorScheme.onPrimaryContainer
+                    )
+                }
+            }
+        }
     }
 }
