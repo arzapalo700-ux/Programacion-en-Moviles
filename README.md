@@ -2,13 +2,12 @@
 
 **Alumno:** Kiara Paola Alburqueque Arzapalo  
 **Curso:** Programación en Móviles  
+**Laboratorio:** Lab 03 - Registro de Producto con Jetpack Compose
 
 ---
-## Pregunta de la Parte 2: `val` vs `var`
 
-* **`val` (Inmutable):** Define una referencia de solo lectura cuyo valor no se puede modificar una vez asignado. Es la opción recomendada en Kotlin por seguridad de código.
-* **`var` (Mutable):** Define una variable cuyo contenido se puede reasignar durante la ejecución del programa (ej. contadores o acumuladores).
+## Pregunta del Laboratorio 03: ¿Qué pasaría si declaras las variables de los campos SIN `remember`?
 
-## Captura de Ejecución en Consola
----
-#<img width="1009" height="634" alt="Captura de pantalla 2026-08-26 031104" src="https://github.com/user-attachments/assets/183ab6ea-fb1d-4710-8e63-a19798e9f95f" />
+Si declaramos las variables de estado (`nombre`, `precio`, `cantidad`) usando únicamente `mutableStateOf("")` sin envolverlas en `remember`, el valor guardado se reiniciará a su estado inicial vacío (`""`) en cada recomposición.
+
+En Jetpack Compose, cada vez que el usuario escribe un carácter en un `OutlinedTextField`, se activa una recomposición de la pantalla. Sin `remember`, la función composable vuelve a ejecutarse desde el principio y crea una nueva variable vacía, haciendo que el texto escrito desaparezca al instante. `remember` permite almacenar el valor en memoria y conservarlo a través de las recomposiciones.

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="addce37a-24c6-4a6a-8784-6b15ddd3396c" name="Changes" comment="Añade campos de texto para registro de producto">
+      <change beforePath="$PROJECT_DIR$/semana-03/Lab3RegistroProducto/app/src/main/java/com/arzapalo/lab3registroproducto/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/semana-03/Lab3RegistroProducto/app/src/main/java/com/arzapalo/lab3registroproducto/MainActivity.kt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;arzapalo700-ux&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/arzapalo700-ux/Programacion-en-Moviles.git&quot;,
+    &quot;accountId&quot;: &quot;736dcef4-8948-4ba3-b391-c4dfa62281ca&quot;
+  }
+}</component>
+  <component name="NoctuleProjectWorkspaceSettings">
+    <option name="migratedAutodetectionSetting" value="true" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3Imtz7DDUDRAm1kK6KNdCLzZHFs" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="sortKey" value="BY_TIME_ASCENDING" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration default="true" type="Application" factoryName="Application">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SwiftProjectSettings">
+    <option name="detectedToolchain" value="true" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="addce37a-24c6-4a6a-8784-6b15ddd3396c" name="Changes" comment="" />
+      <created>1788381831220</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1788381831220</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Crea proyecto Lab03 en Semana03">
+      <option name="closed" value="true" />
+      <created>1788383553499</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1788383553499</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Agrega encabezado con jerarquia tipografica">
+      <option name="closed" value="true" />
+      <created>1788384097151</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1788384097151</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Añade campos de texto para registro de producto">
+      <option name="closed" value="true" />
+      <created>1788384318251</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1788384318252</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Crea proyecto Lab03 en Semana03" />
+    <MESSAGE value="Agrega encabezado con jerarquia tipografica" />
+    <MESSAGE value="Añade campos de texto para registro de producto" />
+    <option name="LAST_COMMIT_MESSAGE" value="Añade campos de texto para registro de producto" />
+  </component>
+</project>
