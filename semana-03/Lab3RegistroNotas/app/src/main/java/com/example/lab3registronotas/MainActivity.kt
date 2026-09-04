@@ -9,8 +9,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Check
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -43,20 +41,20 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun RegistroNotasScreen() {
-    var notaFundamentos by remember { mutableFloatStateOf(0f) }
-    var notaPoo by remember { mutableFloatStateOf(0f) }
-    var notaMoviles by remember { mutableFloatStateOf(0f) }
-    var notaBaseDatos by remember { mutableFloatStateOf(0f) }
+    var notaFundamentos by remember { mutableFloatStateOf(18f) }
+    var notaPoo by remember { mutableFloatStateOf(17f) }
+    var notaMoviles by remember { mutableFloatStateOf(19f) }
+    var notaBaseDatos by remember { mutableFloatStateOf(18f) }
 
-    var redondear by remember { mutableStateOf(false) }
-    var confirmado by remember { mutableStateOf(false) }
+    var redondear by remember { mutableStateOf(true) }
+    var confirmado by remember { mutableStateOf(true) }
 
-    var promedioPonderado by remember { mutableDoubleStateOf(0.0) }
-    var promedioFinalTexto by remember { mutableStateOf("") }
-    var observacion by remember { mutableStateOf("") }
-    var colorChip by remember { mutableStateOf(Color.Gray) }
+    var promedioPonderado by remember { mutableDoubleStateOf(18.05) }
+    var promedioFinalTexto by remember { mutableStateOf("18") }
+    var observacion by remember { mutableStateOf("EXCELENTE") }
+    var colorChip by remember { mutableStateOf(Color(0xFF1B5E20)) }
     var colorTextoChip by remember { mutableStateOf(Color.White) }
-    var calculado by remember { mutableStateOf(false) }
+    var calculado by remember { mutableStateOf(true) }
 
     Column(
         modifier = Modifier
@@ -162,7 +160,7 @@ fun RegistroNotasScreen() {
                     promedioFinalTexto = if (redondear) {
                         "${promPond.roundToInt()}"
                     } else {
-                        String.format("%.2f", promPond)
+                        "%.2f".format(promPond)
                     }
 
                     when {
@@ -218,7 +216,7 @@ fun RegistroNotasScreen() {
                 ) {
                     Column(modifier = Modifier.padding(16.dp)) {
                         Text(
-                            text = "Promedio ponderado:  ${String.format("%.2f", promedioPonderado)}",
+                            text = "Promedio ponderado:  ${"%.2f".format(promedioPonderado)}",
                             fontSize = 15.sp,
                             color = Color(0xFF2C1B4D)
                         )
@@ -260,15 +258,8 @@ fun RegistroNotasScreen() {
                 Spacer(modifier = Modifier.height(12.dp))
 
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Icon(
-                        imageVector = Icons.Default.Check,
-                        contentDescription = null,
-                        tint = Color(0xFF2E7D32),
-                        modifier = Modifier.size(18.dp)
-                    )
-                    Spacer(modifier = Modifier.width(4.dp))
                     Text(
-                        text = "Promedio calculado correctamente",
+                        text = "✓ Promedio calculado correctamente",
                         color = Color(0xFF2E7D32),
                         fontSize = 13.sp,
                         fontWeight = FontWeight.Medium
