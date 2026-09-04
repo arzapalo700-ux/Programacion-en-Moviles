@@ -49,6 +49,10 @@ fun RegistroNotasScreen() {
     var redondear by remember { mutableStateOf(false) }
     var confirmado by remember { mutableStateOf(false) }
 
+    var promedioPonderado by remember { mutableDoubleStateOf(0.0) }
+    var promedioFinalTexto by remember { mutableStateOf("") }
+    var calculado by remember { mutableStateOf(false) }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -130,7 +134,22 @@ fun RegistroNotasScreen() {
             Spacer(modifier = Modifier.height(8.dp))
 
             Button(
-                onClick = {},
+                onClick = {
+                    val n1 = notaFundamentos.roundToInt()
+                    val n2 = notaPoo.roundToInt()
+                    val n3 = notaMoviles.roundToInt()
+                    val n4 = notaBaseDatos.roundToInt()
+
+                    val promPond = (n1 * 0.20) + (n2 * 0.25) + (n3 * 0.30) + (n4 * 0.25)
+                    promedioPonderado = promPond
+
+                    promedioFinalTexto = if (redondear) {
+                        "${promPond.roundToInt()}"
+                    } else {
+                        String.format("%.2f", promPond)
+                    }
+                    calculado = true
+                },
                 enabled = confirmado,
                 modifier = Modifier
                     .fillMaxWidth()
@@ -138,6 +157,11 @@ fun RegistroNotasScreen() {
                 shape = RoundedCornerShape(25.dp)
             ) {
                 Text("CALCULAR PROMEDIO", fontWeight = FontWeight.Bold, color = Color.White)
+            }
+
+            if (calculado) {
+                Spacer(modifier = Modifier.height(16.dp))
+                Text(text = "Promedio final: $promedioFinalTexto", fontWeight = FontWeight.Bold)
             }
         }
     }
