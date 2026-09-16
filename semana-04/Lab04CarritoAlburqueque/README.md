@@ -1,6 +1,6 @@
 # Laboratorio 04: Carrito de Compras en Jetpack Compose
 
-**Alumno/a:** Alburqueque
+**Alumno/a:** Alburqueque Arzapalo Kiara Paola
 **Curso:** Programación en Móviles
 
 ---
