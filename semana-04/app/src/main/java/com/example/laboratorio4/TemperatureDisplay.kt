@@ -34,6 +34,10 @@ fun TemperatureDisplay() {
             Button(onClick = { temperatura-- }) {
                 Text("Bajar")
             }
+            // 5. Botón Resetear que devuelve la temperatura a 20
+            Button(onClick = { temperatura = 20 }) {
+                Text("Resetear")
+            }
         }
     }
 }
