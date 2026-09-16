@@ -4,12 +4,15 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.Alburqueque.myapplication.ui.theme.MyApplicationTheme
-import androidx.compose.ui.tooling.preview.Preview
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,12 +24,16 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
 @Composable
 fun PantallaCarrito() {
     var nombre by remember { mutableStateOf("") }
     var precio by remember { mutableStateOf("") }
     var cantidad by remember { mutableStateOf("") }
     val productos = remember { mutableStateListOf<Producto>() }
+
+    // Cálculo del total acumulado de la lista
+    val total = productos.sumOf { it.precio * it.cantidad }
 
     Column(modifier = Modifier.padding(16.dp)) {
         OutlinedTextField(
@@ -65,14 +72,74 @@ fun PantallaCarrito() {
                     cantidad = ""
                 }
             },
-            modifier = Modifier.fillMaxWidth().padding(top = 8.dp)
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 8.dp)
         ) {
             Text("AGREGAR")
         }
 
         Text(
             text = "Productos en lista: ${productos.size}",
-            modifier = Modifier.padding(top = 16.dp)
+            style = MaterialTheme.typography.titleMedium,
+            modifier = Modifier.padding(vertical = 8.dp)
+        )
+
+        // Lista de productos renderizada
+        LazyColumn(
+            modifier = Modifier.weight(1f),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            items(productos) { producto ->
+                ItemProducto(producto = producto)
+            }
+        }
+
+        Divider(modifier = Modifier.padding(vertical = 8.dp))
+
+        // Muestra del Total General
+        Text(
+            text = "Total a pagar: S/ ${"%.2f".format(total)}",
+            style = MaterialTheme.typography.headlineSmall,
+            modifier = Modifier.align(Alignment.End)
         )
     }
 }
+
+@Composable
+fun ItemProducto(producto: Producto) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(12.dp),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Column {
+                Text(text = producto.nombre, style = MaterialTheme.typography.titleMedium)
+                Text(
+                    text = "${producto.cantidad} x S/ ${"%.2f".format(producto.precio)}",
+                    style = MaterialTheme.typography.bodyMedium
+                )
+            }
+            Text(
+                text = "S/ ${"%.2f".format(producto.precio * producto.cantidad)}",
+                style = MaterialTheme.typography.titleMedium
+            )
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PantallaCarritoPreview() {
+    MyApplicationTheme {
+        PantallaCarrito()
+    }
+}
+
+// COMMIT 03: Implementacion de LazyColumn y calculo de total acumulado
