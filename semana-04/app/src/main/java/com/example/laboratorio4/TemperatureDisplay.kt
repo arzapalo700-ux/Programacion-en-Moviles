@@ -5,12 +5,19 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 @Composable
 fun TemperatureDisplay() {
-    // 2. Estado inicializado en 20 con remember y mutableStateOf
     var temperatura by remember { mutableStateOf(20) }
+
+    // Bonus: Determinar el color del texto según la temperatura
+    val colorTexto = when {
+        temperatura >= 25 -> Color.Red
+        temperatura <= 15 -> Color.Blue
+        else -> Color.Unspecified
+    }
 
     Column(
         modifier = Modifier
@@ -18,15 +25,14 @@ fun TemperatureDisplay() {
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // 3. Muestra de temperatura en pantalla
         Text(
             text = "Temperatura: $temperatura °C",
-            style = MaterialTheme.typography.headlineMedium
+            style = MaterialTheme.typography.headlineMedium,
+            color = colorTexto
         )
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // 4. Botones Subir (temperatura++) y Bajar (temperatura--)
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             Button(onClick = { temperatura++ }) {
                 Text("Subir")
@@ -34,7 +40,6 @@ fun TemperatureDisplay() {
             Button(onClick = { temperatura-- }) {
                 Text("Bajar")
             }
-            // 5. Botón Resetear que devuelve la temperatura a 20
             Button(onClick = { temperatura = 20 }) {
                 Text("Resetear")
             }
