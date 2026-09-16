@@ -76,11 +76,3 @@ fun PantallaCarrito() {
         )
     }
 }
-
-@Preview(showBackground = true)
-@Composable
-fun PantallaCarritoPreview() {
-    MyApplicationTheme {
-        PantallaCarrito()
-    }
-}
