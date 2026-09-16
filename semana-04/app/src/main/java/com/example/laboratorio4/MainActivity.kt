@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.laboratorio4.ui.theme.Laboratorio4Theme
+import androidx.compose.ui.tooling.preview.Preview
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -98,5 +99,24 @@ fun ListaTareasApp(modifier: Modifier = Modifier) {
                 )
             }
         }
+    }
+}
+
+// Vista previa 1: Lista de Tareas
+@Preview(showBackground = true)
+@Composable
+fun ListaTareasAppPreview() {
+    Laboratorio4Theme {
+        ListaTareasApp()
+    }
+}
+
+// Vista previa 2: Control de Temperatura
+@Preview(showBackground = true)
+@Composable
+fun TemperatureDisplayPreview() {
+    Laboratorio4Theme {
+        // Asegúrate de usar el nombre exacto de la función que está en TemperatureDisplay.kt
+        TemperatureDisplay()
     }
 }
